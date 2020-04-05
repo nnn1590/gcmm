@@ -1,6 +1,9 @@
 /****************************************************************************
 * mcard support prototypes
 ****************************************************************************/
+
+// Warnung: Billiger Hack weil ich keinen Bock hab jeden call zu fixen. Ich Übernehme keine Haftung für Cancer.
+#define stricmp strcmp
 #ifndef _MCARDSUP_
 #define _MCARDSUP_
 

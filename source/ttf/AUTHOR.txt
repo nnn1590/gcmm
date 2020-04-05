@@ -1,0 +1,2 @@
+The font used with this project "Open Sans" (Bold) was created by Steve Matteson.
+All rights reserved by Steve Matteson. This font is licensed onder the Apache License Version 2.0. You can find a copy of the license in the "LICENSE.txt" file.

@@ -32,6 +32,7 @@ void ShowScreen ();
 void ShowAction (char *msg);
 void WaitPrompt (char *msg);
 int WaitPromptChoice ( char *msg, char *bmsg, char *amsg);
+int WaitPromptChoiceYBA ( char *msg, char *ymsg, char *bmsg, char *amsg);
 int WaitPromptChoiceAZ ( char *msg, char *bmsg, char *amsg);
 int ShowSelector (int saveinfo);
 int SelectMode ();
