@@ -828,7 +828,7 @@ int main ()
 	have_sd = initFAT(WaitPromptChoice ("Use internal SD or FAT32 USB device?", "USB", "SD"));
 #else
 	//Returns 1 (memory card in slot B, sd gecko in slot A) if A button was pressed and 0 if B button was pressed
-	MEM_CARD = WaitPromptChoiceYBA ("Please select where the SD card is located.", "SD2SP2", "SLOT A", "SLOT B");
+	MEM_CARD = WaitPromptChoiceYBA ("Please select where the SD card is located.", "SD2SP2", "SLOT B", "SLOT A");
 	have_sd = initFAT(MEM_CARD);
 #endif
 
