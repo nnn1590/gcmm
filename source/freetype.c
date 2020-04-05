@@ -10,8 +10,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <ogc/lwp_watchdog.h>
-#include <ft2build.h>
+#include <freetype/ft2build.h>
 #include FT_FREETYPE_H
 #include "bannerload.h"
 #include "freetype.h"
@@ -26,7 +27,7 @@
 #endif
 
 #define MCDATAOFFSET 64
-#define FONT_SIZE 16 //pixels
+#define FONT_SIZE 18 //pixels
 
 /*** Globals ***/
 bool offsetchanged = true;
@@ -616,6 +617,62 @@ int WaitButtonAB ()
 }
 
 /****************************************************************************
+ * Wait for user to press A, Y or B. Returns 0 = B; 1 = A; 2 = Y
+ ****************************************************************************/
+
+int WaitButtonABY ()
+{
+#ifdef HW_RVL
+	u32 gc_btns, wm_btns;
+
+	while ( (PAD_ButtonsDown (0) & (PAD_BUTTON_A | PAD_BUTTON_B))
+	        || (WPAD_ButtonsDown(0) & (WPAD_BUTTON_A | WPAD_BUTTON_B | WPAD_CLASSIC_BUTTON_A | WPAD_CLASSIC_BUTTON_B))
+	      ) VIDEO_WaitVSync();
+
+	while (1)
+	{
+		gc_btns = PAD_ButtonsDown (0);
+		wm_btns = WPAD_ButtonsDown (0);
+		if ( (gc_btns & PAD_BUTTON_A) || (wm_btns & (WPAD_BUTTON_A | WPAD_CLASSIC_BUTTON_A)) )
+		{	
+			WaitRelease();
+			return 1;
+		}
+		else if ( (gc_btns & PAD_BUTTON_B) || (wm_btns & (WPAD_BUTTON_B | WPAD_CLASSIC_BUTTON_B)) )
+		{
+			WaitRelease();
+			return 0;
+		}
+	}
+#else
+	u32 gc_btns;
+
+	while ( (PAD_ButtonsDown (0) & (PAD_BUTTON_A | PAD_BUTTON_B)) ) VIDEO_WaitVSync();
+
+	while (1)
+	{
+		gc_btns = PAD_ButtonsDown (0);
+		if ( gc_btns & PAD_BUTTON_A )
+		{
+			WaitRelease();
+			return 1;
+		}
+		else if ( gc_btns & PAD_BUTTON_B )
+		{
+			WaitRelease();
+			return 0;
+		}
+		else if ( gc_btns & PAD_BUTTON_Y )
+		{
+			WaitRelease();
+			return 2;
+		}
+	}
+#endif
+
+}
+
+/****************************************************************************
  * Wait for user to press A or B. Returns 0 = Z/2; 1 = A
  ****************************************************************************/
 
@@ -701,6 +758,25 @@ int WaitPromptChoice ( char *msg, char *bmsg, char *amsg)
 
 	return ret;
 }
+
+/****************************************************************************
+ * Show a prompt with choice of three options. Returns 1 if A button was pressed,
+   0 if B was pressed and 2 if Y was presssed.
+ ****************************************************************************/
+
+int WaitPromptChoiceYBA ( char *msg, char *ymsg, char *bmsg, char *amsg)
+{
+	char txt[80];
+	int ret;
+	sprintf (txt, "Y = %s   :   B = %s   :   A = %s", ymsg, bmsg, amsg);
+	writeStatusBar(msg, txt);
+	ret = WaitButtonABY ();
+	//Clear the text
+	writeStatusBar("","");
+
+	return ret;
+}
+
 /****************************************************************************
  * Show a prompt with choice of two options. Returns 1 if A button was pressed
    and 0 if Z/2 button was pressed.

@@ -20,6 +20,10 @@
 #include <sys/time.h>
 #include <fat.h>
 
+#ifdef HW_DOL
+extern int bootAutoexec(void);
+#endif
+
 #ifdef HW_RVL
 #include <wiiuse/wpad.h>
 #include <sdcard/wiisd_io.h>
@@ -126,7 +130,7 @@ static int initFAT(int device)
 #else
 	int i =0;
 	s32 ret;
-	if (device)
+	if (device == 1)
 	{//Memcard in SLOT B, SD gecko in SLOT A
 		//This will ensure SD gecko is recognized if inserted or changed to another slot after GCMM is executed
 		for(i=0;i<10;i++){
@@ -145,7 +149,8 @@ static int initFAT(int device)
 			WaitPrompt("Error Mounting SD fat!");
 			return 0;
 		}
-	}else //Memcard in SLOT A, SD gecko in SLOT B
+	}
+	else if (device == 0) //Memcard in SLOT A, SD gecko in SLOT B
 	{
 		//This will ensure SD gecko is recognized if inserted or changed to another slot after GCMM is executed
 		for(i=0;i<10;i++){
@@ -162,6 +167,21 @@ static int initFAT(int device)
 		if (!fatMountSimple ("fat", &__io_gcsdb))
 		{
 			WaitPrompt("Error Mounting SD fat!");
+			return 0;
+		}
+	}
+	else if (device == 2) // SD2SP2
+	{
+		__io_gcsd2.startup();
+		if(!__io_gcsd2.isInserted())
+		{
+			WaitPrompt("No SD2DP2 inserted! Insert it into serial port 2 and restart");
+			return 0;
+		}
+
+		if (!fatMountSimple("fat", &__io_gcsd2))
+		{
+			WaitPrompt("Error mounting SD fat!");
 			return 0;
 		}
 	}
@@ -808,7 +828,7 @@ int main ()
 	have_sd = initFAT(WaitPromptChoice ("Use internal SD or FAT32 USB device?", "USB", "SD"));
 #else
 	//Returns 1 (memory card in slot B, sd gecko in slot A) if A button was pressed and 0 if B button was pressed
-	MEM_CARD = WaitPromptChoice ("Please select the slot where SD Gecko is inserted", "SLOT B", "SLOT A");
+	MEM_CARD = WaitPromptChoiceYBA ("Please select where the SD card is located.", "SD2SP2", "SLOT A", "SLOT B");
 	have_sd = initFAT(MEM_CARD);
 #endif
 
@@ -853,7 +873,14 @@ int main ()
 			break;
 		case 500 ://exit
 			ShowAction ("Exiting...");
+			#ifdef HW_DOL
+				bootAutoexec();
+			#endif
 			deinitFAT();
+			#ifdef HW_DOL
+				SYS_ResetSystem(SYS_RESTART, 0, 0);
+				exit(0);
+			#endif
 #ifdef HW_RVL
 			//if there's a loader stub load it, if not return to wii menu.
 			if (!!*(u32*)0x80001800) exit(1);
