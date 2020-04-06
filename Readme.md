@@ -6,7 +6,7 @@ Gcmm is a project started by dsbomb and justb, which is based on Askot's modific
 
 Suloku has updated the code to newest libraries to port it to the Wii system, and what I find more important: restoring savegames now works properly.
 
-EnterpriseFreak updated the Code very well and added Support for the Great sd2sp2 Adpater. Also he fixed the Bootloader Button on the Gamecube. Please checkout his github: https://github.com/EnterpriseFreak-v2
+EnterpriseFreak updated the Code very well and added Support for the Great sd2sp2 Adpater. Also he added the "Restart Into" Option. Please checkout his github: https://github.com/EnterpriseFreak-v2
 
 ### Features
 
@@ -18,8 +18,8 @@ EnterpriseFreak updated the Code very well and added Support for the Great sd2sp
 * Format the memory card
 * Wiimote and GameCube controller support
 * Power button support
-* Front SD and FAT32 USB device (wii) and SDGecko (gamecube) support
-* SD2SP2 Support
+* Front SD and FAT32 USB device (Wii) and sd2sp2/SDGecko (Gamecube) support
+* "Restart Into" Option (Gamecube): Restarts the Gamecube or booting directly into a autoexec.dol if one is located on the SD Card 
 * Shows savegame information, alongside animated Icon and Banner!
 * A (somewhat) nice UI
 * Open Source!
