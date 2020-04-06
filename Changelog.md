@@ -1,6 +1,6 @@
 ## Changelog
 
-[What's New 1.5 - april 06, 2020 - By EnterpriseFreak & seeWood]
+[What's New 1.5a - april 06, 2020 - By EnterpriseFreak & seeWood]
 * Added support for sd2sp2 Adapter
 * Fixed the Bootloader Button
   - If it finds a autoexec.dol on the SD Card it will try to boot that
