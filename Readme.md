@@ -1,4 +1,4 @@
-## Gamecube Memory Manager / GCMM (Under GPL License
+## Gamecube Memory Manager / GCMM (Under GPL License)
 
 GameCube/Wii Memory Manager is an aplication to backup Nintendo GameCube savegames.
 
