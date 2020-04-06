@@ -1,19 +1,15 @@
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                    GCMM 1.4f by suloku                        ·oø×O0|
-|                      https://github.com/suloku/gcmm                       |
-|                   (old site: http://code.google.com/p/gcmm)               |
-|                          (Under GPL License)                              |
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
+## Gamecube Memory Manager / GCMM (Under GPL License
 
 GameCube/Wii Memory Manager is an aplication to backup Nintendo GameCube savegames.
 
 Gcmm is a project started by dsbomb and justb, which is based on Askot's modification to add SD support to the mcbackup libogc example.
 
-I (suloku) have updated the code to newest libraries to port it to the Wii system, and what I find more important: restoring savegames now works properly.
+Suloku has updated the code to newest libraries to port it to the Wii system, and what I find more important: restoring savegames now works properly.
 
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                            FEATURES                           ·oø×O0|
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
+EnterpriseFreak updated the Code very well and added Support for the Great sd2sp2 Adpater. Also he fixed the Bootloader Button on the Gamecube. Please checkout his github: https://github.com/EnterpriseFreak-v2
+
+### Features
+
 * Backups and restores savegames into GCI format
 * Restores savegames in GCS/SAV format
 * Deletes savegames from memory card
@@ -23,19 +19,16 @@ I (suloku) have updated the code to newest libraries to port it to the Wii syste
 * Wiimote and GameCube controller support
 * Power button support
 * Front SD and FAT32 USB device (wii) and SDGecko (gamecube) support
+* SD2SP2 Support
 * Shows savegame information, alongside animated Icon and Banner!
 * A (somewhat) nice UI
 * Open Source!
 
+### TO DO
 
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                             TO DO                             ·oø×O0|
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
 * Add hotswapping (memory cards can be swapped, SD Gecko/SD/USB can't be swapped)
 
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                 ABOUT SAVEGAMES AND RAW IMAGES                ·oø×O0|
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
+### ABOUT SAVEGAMES AND RAW IMAGES
 
         Raw Images
 --------------------------
@@ -73,10 +66,7 @@ RAW/GCP format is a raw image of the memory card with all its contents.
 
 MCI format (createad by softdev's sdmc) is a raw image of the card, preceded by a 64 byte header.
 
-
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                        CONSIDERATIONS                         ·oø×O0|
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
+### CONSIDERATIONS
 
 Users:
 * If you extract a device (USB, internal SD, USB gecko), it won't work againt. If you did so, reboot the GCMM. On the contrary
@@ -93,18 +83,13 @@ Developers:
 * Very good sources of documentation are libogc and dolphin's source code.
 * Card_Init() shall be called only once. Any subsequent call will be pointless; to change the company and gamecode one should use Card_setgamecode() and Card_setcompany libogc functions.
 
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                     SETUP & INSTALLATION                      ·oø×O0|
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
+### SETUP & INSTALLATION
 
-Unzip the archive. You will find the following folders inside:
-
-apps			Contains Homebrew Channel ready files
-				(see Homebrew Channel instructions below)
+Wii: Copy the boot.dol on your SD Card in apps/gcmm
+     - or just copy the Wii-Ready Folder on your SD Card.
 				
-gamecube		Contains GameCube DOL file (not required for Wii)
+Gamecube: Just place the gcmm_sp2_GC.dol file on your sd2sp2/GeckoSD Adapter
 				
-
     Wii
 ----------
 On the Wii, the savegames will be read from and written to the front SD slot or FAT32 USB device.
@@ -115,7 +100,11 @@ Memory card can be in either slot.
 
   Gamecube
 ------------
-On the GameCube you will need a Gecko SD adapter in the slot A and place the memory card on slot B.
+On the GameCube you will need a sd2sp2/Gecko SD adapter. You can than choose where the MCBACKUP Folder is
+Y: for sd2sp2
+A/B: Where the GeckoSD is inserted
+
+than you can choose where the Memory Card is inserted
 
 ------------------------------
 Loading / Running the app:
@@ -130,13 +119,12 @@ http://hbc.hackmii.com/
 
 Gamecube:
 ---------
-You can load gcmm via sdload and an SD card in slot A, or by streaming 
+You can load gcmm via sdload and an SD card (sd2sp2 or GeckoSD), or by streaming 
 it to your Gamecube, or by booting a bootable DVD with gcmm on it. 
 This document doesn't cover how to do any of that. A good source for information on these topics is at http://www.gc-forever.com/wiki/index.php?title=Booting_Homebrew
 
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                          CONTROLS                             ·oø×O0|
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
+
+### CONTROLS
 
 They are shown at the screen.
 
@@ -145,21 +133,17 @@ Raw mode controls: hold L (gamecube pad) or B (wiimote) then press the correspon
 * Raw Restore Mode: GC_pad L+X , Wiimote B+Plus
 * Format Card Mode: GC_pad L+Z , Wiimote B+2
 
-
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                          COMPILING                            ·oø×O0|
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
+### COMPILING
 Currently gcmm uses:
 
-* DevkitPPC r26: http://sourceforge.net/projects/devkitpro/files/devkitPPC/
-* libOGC 1.8.11 git (2012-07-25): http://sourceforge.net/projects/devkitpro/files/libogc
-	note: it compiles and runs fine with 1.8.11 release
-* libfat 1.0.11: http://sourceforge.net/projects/devkitpro/files/libfat/
-* libFreeType 2.4.2 port: http://sourceforge.net/projects/devkitpro/files/portlibs/ppc/
+* devkitpro: https://devkitpro.org/wiki/Getting_Started (links to the installer can be found in the setup section)
+* devkitppc: Can be installed using the devkitPro installer
+* libogc: Can be installed using the devkitPro installer
+* zlib-1.2.5-ppc: https://wii.leseratte10.de/devkitPro/portlibs/zlib-1.2.5-ppc.tar.bz2
+* ppc-freelib-2.9.1: https://wii.leseratte10.de/devkitPro/portlibs/ppc-freetype-2.9.1-2-any.pkg.tar.xz
+* for Wii you need devkitARM: Can be installed using the devkitPro installer
 
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                           CREDITS                             ·oø×O0|
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
+### CREDITS
 
 * SoftDev for his contributions to the GC/WII scene
 * Costis for helping with some doubts, he's allways there
@@ -172,7 +156,6 @@ Currently gcmm uses:
 * PlabloACZ and Picachu025 for updating the source.
 * Nano(Excelsiior), for inspiring me to finally working again on GCMM
 * bm123456 and themanuel for beta testing and support
-
-×—–­—–­—–­—–­ –­—–­—–­—–­—–­—–­—–­—–­—–­—–­— ­—–­—–­—–­—–­—–­—–­—–­—-­—–­-–•¬
-|0O×øo·                                                               ·oø×O0|
-`¨•¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨'
+* suloku for his ongoing work
+* EnterpriseFreak for adding sd2sp2 Support and "Restart Into" Option (autoexec or restart the Gamecube) - check out his github: https://github.com/EnterpriseFreak-v2
+* Special thanks to Leseratte for hosting older version of the required libarys so that we can still compile homebrew without having to change huge parts of the code. great Website - check it out: https://wii.leseratte10.de/
