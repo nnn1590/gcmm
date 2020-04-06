@@ -42,7 +42,7 @@ extern int bootAutoexec(void);
 //Comment FLASHIDCHECK to allow writing any image to any mc. This will corrupt official cards.
 #define FLASHIDCHECK
 
-const char appversion[] = "v1.4f";
+const char appversion[] = "v1.5a";
 int mode;
 int cancel;
 int doall;
@@ -198,10 +198,9 @@ void deinitFAT()
 	__io_wiisd.shutdown();
 	__io_usbstorage.shutdown();
 #else
-	if(MEM_CARD)
-		__io_gcsda.shutdown();
-	if(!MEM_CARD)
-		__io_gcsdb.shutdown();
+    __io_gcsda.shutdown();
+    __io_gcsdb.shutdown();
+    __io_gcsd2.shutdown();
 #endif
 }
 

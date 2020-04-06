@@ -7,6 +7,9 @@ https://github.com/EnterpriseFreak-v2/autoexec-ldr/releases/tag/v1.00-rewrite
 #include <string.h>
 #include <malloc.h>
 
+#include <fat.h>
+#include <sdcard/gcsd.h>
+
 typedef struct _dolheader {
 	u32 text_pos[7];
 	u32 data_pos[11];
@@ -43,6 +46,10 @@ int bootAutoexec(int argc, char **argv)
 
     fread(dolBuf, 1, dolSize, targetDol);
     fclose(targetDol);
+    fatUnmount("fat");
+    __io_gcsda.shutdown();
+    __io_gcsdb.shutdown();
+    __io_gcsd2.shutdown();
 
     u8* buf;
     u32 size = 0;
