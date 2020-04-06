@@ -1,6 +1,6 @@
 ## Gamecube Memory Manager / GCMM (Under GPL License)
 
-GameCube/Wii Memory Manager is an aplication to backup Nintendo GameCube savegames.
+GameCube/Wii Memory Manager is an Application to backup Nintendo GameCube savegames.
 
 Gcmm is a project started by dsbomb and justb, which is based on Askot's modification to add SD support to the mcbackup libogc example.
 
@@ -158,4 +158,4 @@ Currently gcmm uses:
 * bm123456 and themanuel for beta testing and support
 * suloku for his ongoing work
 * EnterpriseFreak for adding sd2sp2 Support and "Restart Into" Option (autoexec or restart the Gamecube) - check out his github: https://github.com/EnterpriseFreak-v2
-* Special thanks to Leseratte for hosting older version of the required libarys so that we can still compile homebrew without having to change huge parts of the code. great Website - check it out: https://wii.leseratte10.de/
+* Special thanks to Leseratte for hosting older version of the required libarys so that we can still compile homebrew without having to change huge parts of the code. Great website - check it out: https://wii.leseratte10.de/
