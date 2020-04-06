@@ -42,7 +42,7 @@ extern int bootAutoexec(void);
 //Comment FLASHIDCHECK to allow writing any image to any mc. This will corrupt official cards.
 #define FLASHIDCHECK
 
-const char appversion[] = "v1.4f";
+const char appversion[] = "v1.5a";
 int mode;
 int cancel;
 int doall;
@@ -175,7 +175,7 @@ static int initFAT(int device)
 		__io_gcsd2.startup();
 		if(!__io_gcsd2.isInserted())
 		{
-			WaitPrompt("No SD2DP2 inserted! Insert it into serial port 2 and restart");
+			WaitPrompt("No SD2SP2 inserted! Insert it into serial port 2 and restart");
 			return 0;
 		}
 
@@ -198,10 +198,9 @@ void deinitFAT()
 	__io_wiisd.shutdown();
 	__io_usbstorage.shutdown();
 #else
-	if(MEM_CARD)
-		__io_gcsda.shutdown();
-	if(!MEM_CARD)
-		__io_gcsdb.shutdown();
+    __io_gcsda.shutdown();
+    __io_gcsdb.shutdown();
+    __io_gcsd2.shutdown();
 #endif
 }
 
@@ -829,7 +828,17 @@ int main ()
 #else
 	//Returns 1 (memory card in slot B, sd gecko in slot A) if A button was pressed and 0 if B button was pressed
 	MEM_CARD = WaitPromptChoiceYBA ("Please select where the SD card is located.", "SD2SP2", "SLOT B", "SLOT A");
+
 	have_sd = initFAT(MEM_CARD);
+
+	if (MEM_CARD == 2) {
+		if (WaitPromptChoice("Please select which memory card to use.", "Memory Card B", "Memory Card A") == 1) {
+			MEM_CARD = CARD_SLOTA;
+		}
+		else {
+			MEM_CARD = CARD_SLOTB;
+		}
+	}
 #endif
 
 
