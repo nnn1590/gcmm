@@ -2,7 +2,7 @@
 
 [What's New 1.5a - april 06, 2020 - By EnterpriseFreak & seeWood]
 * Added support for sd2sp2 Adapter
-* Fixed the Bootloader Button
+* Added "Restart Into" Option
   - If it finds a autoexec.dol on the SD Card it will try to boot that
     - If it fails to boot into the autoexec.dol or it cannot find a autoexec.dol, it restarts the Gamecube
     
