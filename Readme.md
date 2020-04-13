@@ -26,7 +26,8 @@ EnterpriseFreak updated the Code very well and added Support for the Great sd2sp
 
 ### TO DO
 
-* Add hotswapping (memory cards can be swapped, SD Gecko/SD/USB can't be swapped)
+* Add hotswapping or warmswapping (memory cards can be swapped, SD Gecko/SD/USB can't be swapped)
+* New Background / alternativ Dark Mode Background
 
 ### ABOUT SAVEGAMES AND RAW IMAGES
 
