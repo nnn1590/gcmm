@@ -36,7 +36,7 @@ LDFLAGS	=	-g $(MACHDEP) -Wl,-Map,$(notdir $@).map
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:=	-lfat -logc -lm -lfreetype -lz
+LIBS	:=	-lfat -logc -lfreetype -lbz2 -lz -lpng16 -lm
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
@@ -87,7 +87,8 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 					$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
 					-I$(CURDIR)/$(BUILD) \
 					-I$(LIBOGC_INC) \
-					`$(DEVKITPRO)/portlibs/ppc/bin/freetype-config --cflags`
+					`$(DEVKITPRO)/portlibs/ppc/bin/freetype-config --cflags` \
+					`$(DEVKITPRO)/portlibs/ppc/bin/libpng16-config --cflags`
 
 #---------------------------------------------------------------------------------
 # build a list of library paths
