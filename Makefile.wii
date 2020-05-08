@@ -100,14 +100,11 @@ export OUTPUT	:=	$(CURDIR)/$(TARGET)
 
 #---------------------------------------------------------------------------------
 $(BUILD):
-	@echo PORTLIBZ: $(PORTLIBS)
-	@echo INCLUDE:  $(INCLUDE)
 	@[ -d $@ ] || mkdir -p $@
 	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile.wii
 
 #---------------------------------------------------------------------------------
 clean:
-	@echo $(CFLAGS)
 	@echo clean ...
 	@rm -fr $(BUILD) $(OUTPUT).elf $(OUTPUT).dol $(SOURCES)/gcmm-bk.s
 
