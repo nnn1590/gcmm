@@ -88,6 +88,7 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 					-I$(CURDIR)/$(BUILD) \
 					-I$(LIBOGC_INC) \
 					-I$(PORTLIBS)/include/freetype2
+					-I$(PORTLIBS)/include/freetype2/freetype
 
 #---------------------------------------------------------------------------------
 # build a list of library paths
