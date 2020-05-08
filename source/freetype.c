@@ -12,7 +12,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <ogc/lwp_watchdog.h>
-#include <freetype/ft2build.h>
+#include <ft2build.h>
 #include FT_FREETYPE_H
 #include "bannerload.h"
 #include "freetype.h"
