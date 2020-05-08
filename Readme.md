@@ -142,7 +142,9 @@ Currently gcmm uses:
 * libogc: Can be installed using the devkitPro for Windows installer or `(dkp-)pacman -S libogc`
 * zlib-1.2.5-ppc: https://wii.leseratte10.de/devkitPro/portlibs/zlib-1.2.5-ppc.tar.bz2 or `(dkp-)pacman -S ppc-zlib`
 * ppc-freelib-2.9.1: https://wii.leseratte10.de/devkitPro/portlibs/ppc-freetype-2.9.1-2-any.pkg.tar.xz or `(dkp-)pacman -S ppc-freetype`
+* libfat-ogc-1.1.5-1: https://wii.leseratte10.de/devkitPro//libfat/libfat_1.1.5%20(2020-04-18)/libfat-ogc-1.1.5-1-any.pkg.tar.xz or `(dkp-)pacman -S libfat`
 * for Wii you need devkitARM: Can be installed using the devkitPro for Windows installer or `(dkp-)pacman -S devkitARM`
+* If you are using '(dkp-)pacman', you can install some dependencies with `(dkp-)pacman -S gamecube-dev` or `(dkp-)pacman -S wii-dev`
 
 ## CREDITS
 
