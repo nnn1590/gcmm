@@ -87,8 +87,7 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 					$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
 					-I$(CURDIR)/$(BUILD) \
 					-I$(LIBOGC_INC) \
-					-I$(PORTLIBS)/include/freetype2 \
-					-I$(PORTLIBS)/include/freetype2/freetype
+					`$(DEVKITPRO)/portlibs/ppc/bin/freetype-config --cflags`
 
 #---------------------------------------------------------------------------------
 # build a list of library paths

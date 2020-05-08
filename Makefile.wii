@@ -87,8 +87,7 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 					$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
 					-I$(CURDIR)/$(BUILD) \
 					-I$(LIBOGC_INC) \
-					-I$(PORTLIBS)/include/freetype2 \
-					-I$(PORTLIBS)/include/freetype2/freetype
+					`$(DEVKITPRO)/portlibs/ppc/bin/freetype-config --cflags`
 
 #---------------------------------------------------------------------------------
 # build a list of library paths
@@ -101,11 +100,14 @@ export OUTPUT	:=	$(CURDIR)/$(TARGET)
 
 #---------------------------------------------------------------------------------
 $(BUILD):
+	@echo PORTLIBZ: $(PORTLIBS)
+	@echo INCLUDE:  $(INCLUDE)
 	@[ -d $@ ] || mkdir -p $@
 	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile.wii
 
 #---------------------------------------------------------------------------------
 clean:
+	@echo $(CFLAGS)
 	@echo clean ...
 	@rm -fr $(BUILD) $(OUTPUT).elf $(OUTPUT).dol $(SOURCES)/gcmm-bk.s
 
