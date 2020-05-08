@@ -1,4 +1,4 @@
-## Gamecube Memory Manager / GCMM (Under GPL License)
+# Gamecube Memory Manager / GCMM (Under GPL License)
 
 GameCube/Wii Memory Manager is an Application to backup Nintendo GameCube savegames.
 
@@ -8,7 +8,7 @@ Suloku has updated the code to newest libraries to port it to the Wii system, an
 
 EnterpriseFreak updated the Code very well and added Support for the Great sd2sp2 Adpater. Also he added the "Restart Into" Option. Please checkout his github: https://github.com/EnterpriseFreak-v2
 
-### Features
+## Features
 
 * Backups and restores savegames into GCI format
 * Restores savegames in GCS/SAV format
@@ -24,12 +24,12 @@ EnterpriseFreak updated the Code very well and added Support for the Great sd2sp
 * A (somewhat) nice UI
 * Open Source!
 
-### TO DO
+## TO DO
 
 * Add hotswapping or warmswapping (memory cards can be swapped, SD Gecko/SD/USB can't be swapped)
 * New Background / alternativ Dark Mode Background
 
-### ABOUT SAVEGAMES AND RAW IMAGES
+## ABOUT SAVEGAMES AND RAW IMAGES
 
         Raw Images
 --------------------------
@@ -67,7 +67,7 @@ RAW/GCP format is a raw image of the memory card with all its contents.
 
 MCI format (createad by softdev's sdmc) is a raw image of the card, preceded by a 64 byte header.
 
-### CONSIDERATIONS
+## CONSIDERATIONS
 
 Users:
 * If you extract a device (USB, internal SD, USB gecko), it won't work againt. If you did so, reboot the GCMM. On the contrary
@@ -84,7 +84,7 @@ Developers:
 * Very good sources of documentation are libogc and dolphin's source code.
 * Card_Init() shall be called only once. Any subsequent call will be pointless; to change the company and gamecode one should use Card_setgamecode() and Card_setcompany libogc functions.
 
-### SETUP & INSTALLATION
+## SETUP & INSTALLATION
 
 Wii: Copy the boot.dol on your SD Card in apps/gcmm
      - or just copy the Wii-Ready Folder on your SD Card.
@@ -125,7 +125,7 @@ it to your Gamecube, or by booting a bootable DVD with gcmm on it.
 This document doesn't cover how to do any of that. A good source for information on these topics is at http://www.gc-forever.com/wiki/index.php?title=Booting_Homebrew
 
 
-### CONTROLS
+## CONTROLS
 
 They are shown at the screen.
 
@@ -134,17 +134,17 @@ Raw mode controls: hold L (gamecube pad) or B (wiimote) then press the correspon
 * Raw Restore Mode: GC_pad L+X , Wiimote B+Plus
 * Format Card Mode: GC_pad L+Z , Wiimote B+2
 
-### COMPILING
+## COMPILING
 Currently gcmm uses:
 
 * devkitpro: https://devkitpro.org/wiki/Getting_Started (links to the installer can be found in the setup section)
-* devkitppc: Can be installed using the devkitPro installer
-* libogc: Can be installed using the devkitPro installer
-* zlib-1.2.5-ppc: https://wii.leseratte10.de/devkitPro/portlibs/zlib-1.2.5-ppc.tar.bz2
-* ppc-freelib-2.9.1: https://wii.leseratte10.de/devkitPro/portlibs/ppc-freetype-2.9.1-2-any.pkg.tar.xz
-* for Wii you need devkitARM: Can be installed using the devkitPro installer
+* devkitppc: Can be installed using the devkitPro for Windows installer or `(dkp-)pacman -S devkitPPC`
+* libogc: Can be installed using the devkitPro for Windows installer or `(dkp-)pacman -S libogc`
+* zlib-1.2.5-ppc: https://wii.leseratte10.de/devkitPro/portlibs/zlib-1.2.5-ppc.tar.bz2 or `(dkp-)pacman -S ppc-zlib`
+* ppc-freelib-2.9.1: https://wii.leseratte10.de/devkitPro/portlibs/ppc-freetype-2.9.1-2-any.pkg.tar.xz or `(dkp-)pacman -S ppc-freetype`
+* for Wii you need devkitARM: Can be installed using the devkitPro for Windows installer or `(dkp-)pacman -S devkitARM`
 
-### CREDITS
+## CREDITS
 
 * SoftDev for his contributions to the GC/WII scene
 * Costis for helping with some doubts, he's allways there
